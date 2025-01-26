@@ -44,6 +44,17 @@ const Sidebar = ({
                     key={item.title}
                     href={item.url}
                     className="flex items-center gap-2 w-1/2"
+                    onClick={(e) => {
+                      if (item.url.startsWith("#")) {
+                        e.preventDefault();
+                        const element = document.getElementById(item.url);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      } else {
+                        return true;
+                      }
+                    }}
                   >
                     {item.title}
                     {item.icon ? <item.icon className="h-4 w-4 mt-1" /> : null}

@@ -27,9 +27,24 @@ function DesktopMenu({
   return (
     <div className="hidden md:flex items-center space-x-8">
       {items.map((item) => (
-        <a key={item.title} href={item.url} className="flex items-center gap-2">
+        <a
+          key={item.title}
+          href={item.url}
+          className="flex items-center gap-2"
+          onClick={(e) => {
+            if (item.url.startsWith("#")) {
+              e.preventDefault();
+              const element = document.getElementById(item.url);
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            } else {
+              return true;
+            }
+          }}
+        >
           {item.title}
-          {item.icon ? <item.icon className="h-4 w-4 mt-1" /> : null}
+          {item.icon ? <item.icon className="h-4 w-4" /> : null}
         </a>
       ))}
     </div>
@@ -78,9 +93,9 @@ const ThemeToggle = () => {
       className="hover:text-primary"
     >
       {theme === "dark" ? (
-        <SunIcon className="h-5 w-5" />
+        <SunIcon className="h-5 w-5 hover:rotate-45 transition-all duration-300" />
       ) : (
-        <MoonIcon className="h-5 w-5" />
+        <MoonIcon className="h-5 w-5 hover:rotate-45 transition-all duration-300" />
       )}
     </Button>
   );
@@ -92,7 +107,7 @@ const Navbar = () => {
   const items = [
     { title: t("navbar.services"), url: "#services" },
     { title: t("navbar.projects"), url: "#projects" },
-    { title: t("navbar.about"), url: "#about" },
+    { title: t("navbar.about"), url: "about" },
     { title: t("navbar.contact"), url: "#contact", icon: Mail },
   ];
 

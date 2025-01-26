@@ -47,7 +47,7 @@ const Contact = ({
   });
 
   return (
-    <section className="w-full py-20 bg-background">
+    <section id="#contact" className="w-full py-20 bg-background">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

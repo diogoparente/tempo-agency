@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { I18nProvider } from "./lib/i18n";
 import { ThemeProvider } from "./lib/theme.tsx";
 import "./index.css";
+import "@qpokychuk/gilroy/index.css";
 
 const basename = import.meta.env.BASE_URL;
 const App = React.lazy(() => import("./App.tsx"));

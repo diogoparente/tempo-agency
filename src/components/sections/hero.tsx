@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/i18n";
 
@@ -11,13 +10,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-[600px] bg-zinc-800">
+    <section id="#hero" className="min-h-[600px] bg-zinc-800">
       <div className="z-10 mx-4 relative min-h-[600px] -mt-4  bg-background flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 border-b border-border  rounded-bl-2xl rounded-br-2xl shadow-xl">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background/5" />
-
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-foreground"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold pb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-foreground"
             initial="hidden"
             animate="visible"
             variants={textVariants}
